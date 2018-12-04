@@ -6,7 +6,7 @@ import axios from 'axios';
   发送dispatch 
 
 */
-class Saga extends Component {
+class Immutable extends Component {
 	componentDidMount() {
 		//  发送请求
 		axios.post('api/fuck').then((res) => {
@@ -34,7 +34,7 @@ class Saga extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		val: state.get([ 'f', 'val' ])
+		val: state.getIn([ 'f', 'val' ])
 	};
 };
 const mapActionToProps = (dispatch) => {
@@ -46,4 +46,4 @@ const mapActionToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapActionToProps)(Saga);
+export default connect(mapStateToProps, mapActionToProps)(Immutable);
